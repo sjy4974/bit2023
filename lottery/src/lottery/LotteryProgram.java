@@ -16,13 +16,17 @@ public class LotteryProgram {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		
+		// 당첨 번호 생성
 		Office office = Office.getInstence();
 		office.pickNumbers();
 		
+		// 입력 받아 로또 생성
 		Person p = new Person();
 		p.buy();
 		people.add(p);
 		
+		// 임시 로또 1000개 생성
 		for(int i = 0; i<999; i++) {
 			Person temp = new Person();
 			Lottery lottery = new Lottery();
@@ -92,6 +96,7 @@ public class LotteryProgram {
 		collectCount.put(3, 0);
 		collectCount.put(2, 0);
 		collectCount.put(1, 0);
+		
 		for(Person p : people) {
 			int count = p.getCount();
 			if(count == 0) break;
