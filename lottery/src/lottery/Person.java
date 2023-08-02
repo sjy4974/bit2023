@@ -33,6 +33,9 @@ public class Person implements Comparable<Person>{
 		return count;
 	}
 
+	/**
+	 * 로또 구매
+	 */
 	public void buy() {
 		Set<Integer> lotterNumbers = LotteryNumCreator.inputCreateLotteryNumbers();
 		Lottery lottery = new Lottery();

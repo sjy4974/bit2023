@@ -11,7 +11,10 @@ public class LotteryNumCreator {
 	private static final int MAX_SIZE = 5;
 	private static final int MAX_LIMIT_NUM = 40;
 
-	// 자동 로또 번호 생성
+	/**
+	 * 자동 로또 생성
+	 * @return
+	 */
 	public static Set<Integer> createNumbers() {
 		Set<Integer> winNumbers = new HashSet<Integer>();
 
@@ -27,7 +30,10 @@ public class LotteryNumCreator {
 		return Set.copyOf(winNumbers);
 	}
 
-	// 유저가 입력한 번호로 로또번호 생성
+	/**
+	 * 유저가 입력한 번호를 기반으로 로또 생성
+	 * @return
+	 */
 	public static Set<Integer> inputCreateLotteryNumbers() {
 		System.out.println("1~40 사이의 숫자를 입력 해주세요");
 		Set<Integer> lotteryNumbers = new HashSet<Integer>();
@@ -61,6 +67,11 @@ public class LotteryNumCreator {
 
 	}
 
+	/**
+	 * 입력 범위 체크
+	 * @param num
+	 * @return
+	 */
 	private static boolean checkValidation(int num) {
 		if (num < 1 || num > 40) {
 			return false;
