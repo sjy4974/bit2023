@@ -20,13 +20,33 @@ public class LotteryProgram {
 		// 당첨 번호 생성
 		Office office = Office.getInstence();
 		office.pickNumbers();
-		
-		// 입력 받아 로또 생성
-		Person p = new Person();
-		p.buy();
-		people.add(p);
-		
+		// 입력 받아 로또 생성 (내가 산 로또)
+		Person person = createLotteryWithInput();
 		// 임시 로또 1000개 생성
+		createAutoLottery();
+		// 당첨자 계산 후 결과 출력
+		result(person);
+		
+		
+	}
+
+	private static Person createLotteryWithInput() {
+		// TODO Auto-generated method stub
+		Person person = new Person();
+		person.buy();
+		people.add(person);
+		return person;
+	}
+
+	private static void result(Person person) {
+		// TODO Auto-generated method stub
+		operator(person);
+		setMyReward(person);
+		printResult(person);
+	}
+
+	private static void createAutoLottery() {
+		// TODO Auto-generated method stub
 		for(int i = 0; i<999; i++) {
 			Person temp = new Person();
 			Lottery lottery = new Lottery();
@@ -35,11 +55,6 @@ public class LotteryProgram {
 			temp.setLottery(lottery);
 			people.add(temp);
 		}
-		
-		operator(p);
-		setMyReward(p);
-		printResult(p);
-		
 	}
 
 	private static void setMyReward(Person person) {
