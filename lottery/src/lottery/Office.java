@@ -17,7 +17,7 @@ public class Office {
 		return office;
 	}
 
-	public void pickNumbers() {	
+	public void createWinNumbers() {	
 		winNumbers = LotteryNumCreator.createNumbers();
 	}
 

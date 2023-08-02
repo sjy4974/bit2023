@@ -19,7 +19,7 @@ public class LotteryProgram {
 		
 		// 당첨 번호 생성
 		Office office = Office.getInstence();
-		office.pickNumbers();
+		office.createWinNumbers();
 		// 입력 받아 로또 생성 (내가 산 로또)
 		Person person = createLotteryWithInput();
 		// 임시 로또 1000개 생성
