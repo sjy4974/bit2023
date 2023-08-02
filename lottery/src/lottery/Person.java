@@ -40,6 +40,7 @@ public class Person implements Comparable<Person>{
 		this.lottery = lottery;
 	}
 	
+	// 정답 로또 번호와 맞춘 개수를 기준으로 person 정렬
 	@Override
 	public int compareTo(Person p) {
 		// TODO Auto-generated method stub
