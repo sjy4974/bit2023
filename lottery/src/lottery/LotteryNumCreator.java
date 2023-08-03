@@ -5,29 +5,23 @@ import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class LotteryNumCreator {
 	private static final Random random = new Random();
 	private static final int MAX_SIZE = 5;
-	private static final int MAX_LIMIT_NUM = 40;
 
 	/**
 	 * 자동 로또 생성
 	 * @return
 	 */
 	public static Set<Integer> createNumbers() {
-		Set<Integer> winNumbers = new HashSet<Integer>();
-
-		while (winNumbers.size() != MAX_SIZE) {
-
-			int pickNumber = random.nextInt(MAX_LIMIT_NUM) + 1;
-
-			if (!winNumbers.contains(pickNumber)) {
-				winNumbers.add(pickNumber);
-			}
-		}
-
-		return Set.copyOf(winNumbers);
+		
+		return random.ints(1, 40+1)
+				.distinct()
+				.limit(5)
+				.boxed()
+				.collect(Collectors.toUnmodifiableSet());
 	}
 
 	/**
