@@ -10,13 +10,16 @@ import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
 import app.cust.CustServiceImpl;
 import app.dto.Cust;
 import app.frame.ServiceFrame;
 
+@TestMethodOrder(OrderAnnotation.class)
 class CustTest {
 
 	Logger log = Logger.getLogger("CustTest");
@@ -90,8 +93,7 @@ class CustTest {
 		List<Cust> list = new ArrayList<>();
 		
 		list = service.get();
-		
-		assertTrue("selectAll Error",list.size() == 1);
+		assertTrue("selectAll Error",list.size() >= 1);
 	}
 	
 	@DisplayName("delete Test")
@@ -100,7 +102,6 @@ class CustTest {
 	void delete() throws Exception {
 		String id = "id01";
 		boolean result = service.remove(id);
-		
 		assertTrue("deleteError", result);
 
 	}

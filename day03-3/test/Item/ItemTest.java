@@ -88,7 +88,7 @@ class ItemTest {
 	void delete() throws Exception {
 		List<Item> list = service.get();
 		
-		boolean result = service.remove(list.get(0).getId());
+		boolean result = service.remove(list.get(list.size()-1).getId());
 		
 		assertTrue("deleteError", result);
 
